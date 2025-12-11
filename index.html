@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎅 Joululahjapeli - Christmas Gift Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎅 Joululahjapeli 🎁</h1>
+        <div class="game-info">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="gifts-left">Gifts Left: <span id="gifts-left">10</span></div>
+        </div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="instructions">
+            <p><strong>How to Play:</strong></p>
+            <p>Click and drag to aim, release to throw gifts into Santa's sleigh!</p>
+            <p>Get as many gifts in the sleigh as possible!</p>
+        </div>
+        <button id="restartBtn" class="restart-btn" style="display: none;">Play Again</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
