@@ -4,10 +4,11 @@ const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const giftsLeftElement = document.getElementById('gifts-left');
 const restartBtn = document.getElementById('restartBtn');
+const TOTAL_GIFTS = 10;
 
 // Game state
 let score = 0;
-let giftsRemaining = 10;
+let giftsRemaining = TOTAL_GIFTS;
 let gameOver = false;
 
 // Gift physics
@@ -227,9 +228,9 @@ function draw() {
         ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2 - 50);
         
         ctx.font = '32px Arial';
-        ctx.fillText(`Final Score: ${score} / 10`, canvas.width / 2, canvas.height / 2 + 10);
+        ctx.fillText(`Final Score: ${score} / ${TOTAL_GIFTS}`, canvas.width / 2, canvas.height / 2 + 10);
         
-        const percentage = (score / 10) * 100;
+        const percentage = (score / TOTAL_GIFTS) * 100;
         let message = '';
         if (percentage === 100) message = '🎅 Perfect! Santa is impressed! 🎅';
         else if (percentage >= 70) message = '🎁 Great job! 🎁';
@@ -360,7 +361,7 @@ canvas.addEventListener('touchend', (e) => {
 // Restart button
 restartBtn.addEventListener('click', () => {
     score = 0;
-    giftsRemaining = 10;
+    giftsRemaining = TOTAL_GIFTS;
     gameOver = false;
     gift = null;
     isDragging = false;
