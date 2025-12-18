@@ -301,7 +301,10 @@ canvas.addEventListener('mouseup', (e) => {
     const dx = dragStartX - dragEndX;
     const dy = dragStartY - dragEndY;
     
-    const velocityScale = 0.15;
+    // Calculate power based on drag distance
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const power = Math.min(distance / 200, 1); // Normalize to 0-1 range
+    const velocityScale = 0.1 + (power * 0.15); // Scale from 0.1 to 0.25 based on power
     const vx = dx * velocityScale;
     const vy = dy * velocityScale;
     
@@ -349,7 +352,10 @@ canvas.addEventListener('touchend', (e) => {
     const dx = dragStartX - dragEndX;
     const dy = dragStartY - dragEndY;
     
-    const velocityScale = 0.15;
+    // Calculate power based on drag distance
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const power = Math.min(distance / 200, 1); // Normalize to 0-1 range
+    const velocityScale = 0.1 + (power * 0.15); // Scale from 0.1 to 0.25 based on power
     const vx = dx * velocityScale;
     const vy = dy * velocityScale;
     
